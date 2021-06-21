@@ -2,7 +2,6 @@ let webdriver = require('selenium-webdriver'),
     chrome = require('selenium-webdriver/chrome'),
     By = webdriver.By,
     until = webdriver.until;
- //   test = require('selenium-webdriver/testing');
 
 describe('Google Search', function () //создание главной функции
 {
