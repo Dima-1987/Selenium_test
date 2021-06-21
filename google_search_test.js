@@ -1,17 +1,17 @@
-var webdriver = require('selenium-webdriver'),
-    chrome = require('selenium-webdriver/chrome'),
+let webdriver = require('selenium-webdriver'),
+    //chrome = require('selenium-webdriver/chrome'),
     By = webdriver.By,
     until = webdriver.until;
  //   test = require('selenium-webdriver/testing');
 
-describe('Google Search', function () //содание главной вункции
+describe('Google Search', function () //создание главной функции
 {
-    var driver;      // объявляем переменную для работы с браузером
+    let driver;      // объявляем переменную для работы с браузером
     before(function () //функция содержащая параметры запуска браузера
     {
       driver = new webdriver.Builder()
           .forBrowser('firefox') //указываем какой браузер запускаться
-          .build(); //Создаеться объек браузера
+          .build(); //Создается объект браузера
     });
 
     it('name_test', function () //функция выполняющая тест
