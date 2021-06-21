@@ -10,7 +10,8 @@ describe('Google Search', function () //создание главной функ
     {
         let options = new chrome.Options; //создаем объект
         options.addArguments(["start-fullscreen"]); //указываем параметр запуска браузера с командной строки
-       // options.addExtensions("путь к файлу расширения ctx"); //запуск браузера с необходимым расширением
+        // options.addExtensions("путь к файлу расширения ctx"); //запуск браузера с необходимым расширением
+        // options.setChromeBinaryPath("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe") //явное указание пути запускаемого браузера
 
 
                driver = new webdriver.Builder()
