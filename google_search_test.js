@@ -10,6 +10,7 @@ describe('Google Search', function () //создание главной функ
     {
         let options = new chrome.Options; //создаем объект
         options.addArguments(["start-fullscreen"]); //указываем параметр запуска браузера с командной строки
+
         // options.addExtensions("путь к файлу расширения ctx"); //запуск браузера с необходимым расширением
         // options.setChromeBinaryPath("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe") //явное указание пути запускаемого браузера
 
@@ -20,7 +21,6 @@ describe('Google Search', function () //создание главной функ
             .setChromeOptions(options) //применяем аргумент
             .build(); //Создается объект браузера
 
-        driver.getCapabilities().then(function (caps) {console.log(caps);});//вывод в лог информации по подключенным аргументам
     });
     it('name_test', function () //функция выполняющая тест
     {
@@ -28,6 +28,15 @@ describe('Google Search', function () //создание главной функ
       driver.findElement(By.name('q')).sendKeys('hello');
       driver.findElement(By.name('btnG')).click();
       driver.wait(until.titleIs('hello - Google Search'), 10000);
+
+
+      driver.manage().addCookie({'name':"test", 'value':"test"});
+      driver.getCapabilities().then(function (caps) {console.log(caps);});//вывод в лог информации по подключенным аргументам
+      driver.manage().getCookies().then(function (cookies){console.log ('cookie details => ', cookies)});
+
+
+
+
     });
     after(() => driver && driver.quit());
 });
