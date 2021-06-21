@@ -9,9 +9,11 @@ describe('Google Search', function () //создание главной функ
     before(function () //функция содержащая параметры запуска браузера
     {
         let options = new chrome.Options; //создаем объект
-        options.addArguments(["start-fullscreen"]) //указываем параметр запуска браузера с командной строки
+        options.addArguments(["start-fullscreen"]); //указываем параметр запуска браузера с командной строки
+       // options.addExtensions("путь к файлу расширения ctx"); //запуск браузера с необходимым расширением
 
-        driver = new webdriver.Builder()
+
+               driver = new webdriver.Builder()
             .withCapabilities({'unexpectedAlertBehaviour': 'dismiss'})// запуск браузера с аргументами
             .forBrowser('chrome') //указываем какой браузер запускаться
             .setChromeOptions(options) //применяем аргумент
