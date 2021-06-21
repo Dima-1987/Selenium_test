@@ -10,14 +10,16 @@ describe('Google Search', function () //создание главной функ
     before(function () //функция содержащая параметры запуска браузера
     {
         let options = new chrome.Options; //создаем объект
-        options.addArguments(["start-fullscreen"]) //указываем аргумент
+        options.addArguments(["start-fullscreen"]) //указываем параметр запуска браузера с командной строки
 
-      driver = new webdriver.Builder()
-          .forBrowser('chrome') //указываем какой браузер запускаться
-          .setChromeOptions(options) //применяем аргумент
-          .build(); //Создается объект браузера
+        driver = new webdriver.Builder()
+            .withCapabilities({'unexpectedAlertBehaviour': 'dismiss'})// запуск браузера с аргументами
+            .forBrowser('chrome') //указываем какой браузер запускаться
+            .setChromeOptions(options) //применяем аргумент
+            .build(); //Создается объект браузера
+
+        driver.getCapabilities().then(function (caps) {console.log(caps);});//вывод в лог информации по подключенным аргументам
     });
-
     it('name_test', function () //функция выполняющая тест
     {
       driver.get('https://www.google.com');
